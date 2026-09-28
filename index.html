@@ -1,0 +1,2026 @@
+<!doctype html>
+
+<!-- Email marketing KitajShop — layout em tabelas, CSS inline e container de 600px. -->
+
+<html
+  lang="pt-BR"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:v="urn:schemas-microsoft-com:vml"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+>
+
+  <!-- HEAD: metadados, compatibilidade e estilos globais. -->
+
+  <head>
+
+    <!-- Codificação UTF-8. -->
+
+    <meta
+      charset="UTF-8"
+    >
+
+    <!-- Viewport: largura do dispositivo e escala inicial. -->
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    >
+
+    <!-- Apple Mail: desativa a reformatação automática. -->
+
+    <meta
+      name="x-apple-disable-message-reformatting"
+    >
+
+    <!-- Declara suporte aos esquemas de cores claro e escuro. -->
+
+    <meta
+      name="color-scheme"
+      content="light dark"
+    >
+    <meta
+      name="supported-color-schemes"
+      content="light dark"
+    >
+
+    <!-- Título da página no navegador; não define o assunto do email. -->
+
+    <title>
+      Nome da campanha
+    </title>
+
+    <!-- Outlook clássico: normalização da escala para 96 DPI. -->
+
+    <!--[if mso]>
+      <xml>
+        <o:OfficeDocumentSettings>
+          <o:PixelsPerInch>
+            96
+          </o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+      </xml>
+    <![endif]-->
+
+    <!-- CSS global: resets, componentes e adaptações por cliente. -->
+
+    <style>
+      /* RESET: normalização dos estilos padrão. */
+      /* Remove margens e padding do documento. */
+      html, body  {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      /* Limita o redimensionamento automático de texto. */
+      *  {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      /* Outlook: remove espaçamento lateral das tabelas. */
+      table, td  {
+        mso-table-lspace: 0pt !important;
+        mso-table-rspace: 0pt !important;
+      }
+
+      /* Tabelas: células sem espaçamento, layout fixo e centralização. */
+      table  {
+        border-spacing: 0 !important;
+        border-collapse: collapse !important;
+        table-layout: fixed;
+        margin: 0 auto !important;
+      }
+
+      /* Imagens: remove bordas e espaço de linha; mantém a proporção. */
+      img  {
+        -ms-interpolation-mode: bicubic;
+        display: block;
+        border: 0;
+        outline: none;
+        text-decoration: none;
+        height: auto;
+      }
+
+      /* Links sem sublinhado padrão. */
+      a  {
+        text-decoration: none;
+      }
+
+      /* iOS: neutraliza estilos dos links detectados automaticamente. */
+      a[x-apple-data-detectors]  {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+      }
+
+      /* Gmail: herda a cor dos links e remove sublinhado automático. */
+      u + #body a  {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* COMPONENTES: largura, espaçamento e alinhamento. */
+      /* Container fluido com largura máxima de 600px. */
+      .email-container  {
+        width: 100%;
+        max-width: 600px;
+      }
+
+      /* Padding padrão dos blocos de conteúdo. */
+      .content-padding  {
+        padding: 40px 40px;
+      }
+
+      /* Alinhamento vertical das colunas pelo topo. */
+      .mobile-stack  {
+        vertical-align: top;
+      }
+
+      /* MOBILE: regras para telas de até 600px. */
+      /* Responsividade até 600px: largura fluida, colunas empilhadas e ajustes de tipografia e padding. */
+      @media screen and (max-width: 600px)  {
+        .email-container  {
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+
+        .fluid  {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+        }
+
+        .mobile-stack  {
+          display: block !important;
+          width: 100% !important;
+        }
+
+        .content-padding  {
+          padding: 30px 20px !important;
+        }
+
+        .mobile-center  {
+          text-align: center !important;
+        }
+
+        .mobile-hide  {
+          display: none !important;
+        }
+
+        .mobile-full-width  {
+          width: 100% !important;
+        }
+
+        .heading  {
+          font-size: 28px !important;
+          line-height: 34px !important;
+        }
+
+      }
+
+      /* DARK MODE: paleta para modo escuro. */
+      /* Ajusta fundos, textos e bordas em clientes com suporte à preferência de modo escuro. */
+      @media (prefers-color-scheme: dark)  {
+        .dark-bg  {
+          background-color: #121212 !important;
+        }
+
+        .dark-container  {
+          background-color: #1c1c1c !important;
+        }
+
+        .dark-text  {
+          color: #f5f5f5 !important;
+        }
+
+        .dark-muted  {
+          color: #cccccc !important;
+        }
+
+        .dark-border  {
+          border-color: #444444 !important;
+        }
+
+      }
+
+      /* Outlook: paleta alternativa via atributo data-ogsc. */
+      [data-ogsc] .dark-bg  {
+        background-color: #121212 !important;
+      }
+
+      [data-ogsc] .dark-container  {
+        background-color: #1c1c1c !important;
+      }
+
+      [data-ogsc] .dark-text  {
+        color: #f5f5f5 !important;
+      }
+
+      [data-ogsc] .dark-muted  {
+        color: #cccccc !important;
+      }
+
+    </style>
+
+    <!-- Produtos: empilha os cards no mobile, aplica espaçamento de 24px e adapta a paleta ao modo escuro. -->
+
+    <style>
+      @media screen and (max-width: 600px)  {
+        .product-shelves, .product-shelves > tbody, .product-shelves > tbody > tr  {
+          display: block !important;
+          width: 100% !important;
+        }
+
+        .product-column  {
+          display: block !important;
+          width: 100% !important;
+        }
+
+        .product-gutter  {
+          display: block !important;
+          width: 100% !important;
+          height: 24px !important;
+        }
+
+        .product-section  {
+          padding: 24px 20px 0 !important;
+        }
+
+      }
+
+      @media (prefers-color-scheme: dark)  {
+        .product-card  {
+          background-color: #252525 !important;
+        }
+
+        .product-button  {
+          background-color: #00cf64 !important;
+          color: #111111 !important;
+        }
+
+      }
+
+      [data-ogsc] .product-card, [data-ogsb] .product-card  {
+        background-color: #252525 !important;
+      }
+
+      [data-ogsc] .product-button, [data-ogsb] .product-button  {
+        background-color: #00cf64 !important;
+        color: #111111 !important;
+      }
+
+    </style>
+
+    <!-- Fim dos estilos dos produtos. -->
+
+      <!-- Contato: ajuste de logo e tipografia no mobile; dourado alternativo no modo escuro. -->
+    <style>
+      @media screen and (max-width: 600px) {
+        .brand-footer-logo {
+          width: 110px !important;
+        }
+        .brand-contact-number {
+          font-size: 11px !important;
+          line-height: 17px !important;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .brand-contact, .brand-contact-number {
+          color: #e4c16b !important;
+        }
+      }
+
+      [data-ogsc] .brand-contact, [data-ogsc] .brand-contact-number {
+        color: #e4c16b !important;
+      }
+    </style>
+</head>
+
+  <!-- BODY: fundo da mensagem e identificador para ajustes do Gmail. -->
+
+  <body
+    id="body"
+    class="dark-bg"
+    style="
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      background-color: #f3f3f3;
+    "
+  >
+
+    <!-- PREHEADER: texto de prévia oculto no corpo da mensagem. -->
+
+    <div
+      style="
+        display: none;
+        font-size: 1px;
+        color: #f3f3f3;
+        line-height: 1px;
+        font-family: Arial, sans-serif;
+        max-height: 0;
+        max-width: 0;
+        opacity: 0;
+        overflow: hidden;
+        mso-hide: all;
+      "
+    >
+      Aqui entra o texto de pré-visualização do email.
+    </div>
+
+    <!-- WRAPPER: fundo externo e centralização; tabela condicional de 600px para Outlook. -->
+
+    <center
+      role="article"
+      aria-roledescription="email"
+      lang="pt-BR"
+      style="
+        width: 100%;
+        background-color: #f3f3f3;
+      "
+      class="dark-bg"
+    >
+
+      <!--[if mso]>
+        <table role="presentation" width="600" align="center" cellspacing="0" cellpadding="0" border="0" >
+          <tr>
+            <td>
+      <![endif]-->
+
+      <!-- CONTAINER: tabela de apresentação com largura máxima de 600px. -->
+
+      <table
+        role="presentation"
+        width="100%"
+        cellspacing="0"
+        cellpadding="0"
+        border="0"
+        align="center"
+        class="email-container dark-container"
+        style="
+          width: 100%;
+          max-width: 600px;
+          background-color: #ffffff;
+        "
+      >
+
+        <!-- Versão web: substituir {{view_online}} pela variável da plataforma de envio. -->
+
+        <tr>
+          <td
+            align="center"
+            class="dark-muted"
+            style="
+              padding: 12px 20px;
+              font-family: Arial, Helvetica, sans-serif;
+              font-size: 11px;
+              line-height: 16px;
+              color: #777777;
+            "
+          >
+            Não consegue visualizar?
+            <a
+              href="{{view_online}}"
+              style="
+                color: #555555;
+                text-decoration: underline;
+              "
+            >
+              Veja no navegador
+            </a>
+            .
+          </td>
+        </tr>
+
+        <!-- HERO: banner responsivo com largura máxima de 600px e altura proporcional. -->
+
+        <tr>
+          <td>
+            <img
+              src="https://res.cloudinary.com/rcjsqvet/image/upload/f_auto,q_auto/KitashopBanner1"
+              width="600"
+              alt="Descrição da campanha"
+              class="fluid"
+              style="
+                width: 100%;
+                max-width: 600px;
+                height: auto;
+              "
+            >
+          </td>
+        </tr>
+
+        <!-- CONTEÚDO PRINCIPAL: título e descrição da campanha. -->
+
+        <tr>
+          <td
+            class="content-padding"
+            style="
+              padding: 40px;
+              font-family: Arial, Helvetica, sans-serif;
+            "
+          >
+            <h1
+              class="heading dark-text"
+              style="
+                margin: 0 0 20px 0;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 30px;
+                line-height: 38px;
+                font-weight: 700;
+                color: #111111;
+              "
+            >
+              Pequenos detalhes. Muito de você.
+            </h1>
+            <p
+              class="dark-muted"
+              style="
+                margin: 0 0 28px 0;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 16px;
+                line-height: 25px;
+                color: #555555;
+              "
+            >
+              Explore a categoria de acessórios da KitajShop e se encontre em peças que traduzem sua personalidade, despertam sentimentos e tornam cada momento mais especial.
+            </p>
+
+            <!-- CTA PRINCIPAL: botão em tabela com estilos inline. -->
+
+            <table
+              role="presentation"
+              cellspacing="0"
+              cellpadding="0"
+              border="0"
+            >
+              <tr>
+                <td
+                  align="center"
+                  bgcolor="#111111"
+                  style="
+                    border-radius: 6px;
+                  "
+                >
+                  <a
+                    href="https://www.exemplo.com"
+                    target="_blank"
+                    style="
+                      display: inline-block;
+                      padding: 15px 28px;
+                      font-family: Arial, Helvetica, sans-serif;
+                      font-size: 15px;
+                      font-weight: bold;
+                      line-height: 20px;
+                      color: #ffffff;
+                      background-color: #111111;
+                      border: 1px solid #111111;
+                      border-radius: 6px;
+                    "
+                  >
+                    CONHEÇA OS ACESSÓRIOS
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- DIVISOR: célula de 1px com fundo sólido. -->
+
+        <tr>
+          <td
+            style="
+              padding: 0 40px;
+            "
+          >
+            <table
+              role="presentation"
+              width="100%"
+              cellspacing="0"
+              cellpadding="0"
+              border="0"
+            >
+              <tr>
+                <td
+                  height="1"
+                  class="dark-border"
+                  style="
+                    height: 1px;
+                    background-color: #dddddd;
+                    font-size: 0;
+                    line-height: 0;
+                  "
+                >
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!--
+          ESPAÇO PARA PRODUTOS: grade 2 × 2 no desktop e coluna única até 600px.
+          Cards de 270px e intervalo de 20px. Alturas uniformes para imagem, nome e preços.
+          Nomes acima de quatro linhas podem expandir a célula e afetar o alinhamento.
+        -->
+
+        <tr>
+          <td
+            class="product-section"
+            style="
+              padding:32px 20px 0;
+            "
+          >
+            <table
+              role="presentation"
+              class="product-shelves"
+              width="100%"
+              cellspacing="0"
+              cellpadding="0"
+              border="0"
+              style="
+                width:100%;
+                max-width:560px;
+                table-layout:fixed;
+              "
+            >
+
+              <!-- PRATELEIRA 1: produtos 1 e 2. -->
+
+              <tr>
+                <td
+                  class="product-column"
+                  width="270"
+                  valign="top"
+                  style="
+                    width:48.2142857%;
+                    vertical-align:top;
+                  "
+                >
+
+                  <!-- PRODUTO 1: imagem, descrição, preços e botão de compra. -->
+
+                  <table
+                    role="presentation"
+                    class="product-card"
+                    width="100%"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    bgcolor="#f7f7f7"
+                    style="
+                      width:100%;
+                      table-layout:fixed;
+                      background-color:#f7f7f7;
+                    "
+                  >
+                    <tr>
+                      <td
+                        style="
+                          padding:20px;
+                        "
+                      >
+                        <table
+                          role="presentation"
+                          width="100%"
+                          cellspacing="0"
+                          cellpadding="0"
+                          border="0"
+                          style="
+                            width:100%;
+                            table-layout:fixed;
+                          "
+                        >
+
+                          <!-- IMAGEM DO PRODUTO: área de 220px, centralizada e com link. -->
+
+                          <tr>
+                            <td
+                              class="product-image-area"
+                              height="220"
+                              align="center"
+                              valign="middle"
+                              style="
+                                height:220px;
+                                font-size:0;
+                                line-height:0;
+                              "
+                            >
+                              <a
+                                href="https://example.com/produto-1"
+                                target="_blank"
+                                style="
+                                  text-decoration:none;
+                                "
+                              >
+                                <img
+                                  src="https://res.cloudinary.com/rcjsqvet/image/upload/f_auto/q_auto/Chaveiro_Grande_de_Nota_Musical_em_C%C3%ADrculo_Plano.png"
+                                  width="220"
+                                  height="220"
+                                  alt="Produto 1 — imagem ilustrativa"
+                                  style="
+                                    display:block;
+                                    width:100%;
+                                    max-width:220px;
+                                    height:auto;
+                                    border:0;
+                                    color:#333333;
+                                    font:14px Arial,sans-serif;
+                                  "
+                                >
+                              </a>
+                            </td>
+                          </tr>
+
+                          <!-- ESPAÇADOR: separação vertical sem conteúdo semântico. -->
+
+                          <tr>
+                            <td
+                              height="18"
+                              aria-hidden="true"
+                              style="
+                                height:18px;
+                                font-size:0;
+                                line-height:0;
+                              "
+                            >
+                              &nbsp;
+                            </td>
+                          </tr>
+
+                          <!-- NOME DO PRODUTO: reserva de 80px, alinhamento superior e entrelinha de 20px. -->
+
+                          <tr>
+                            <td
+                              class="product-name dark-text"
+                              height="80"
+                              valign="top"
+                              style="
+                                height:80px;
+                                padding:0;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size:16px;
+                                line-height:20px;
+                                mso-line-height-rule:exactly;
+                                font-weight:700;
+                                color:#111111;
+                              "
+                            >
+                              <a
+                                class="dark-text"
+                                href="https://example.com/produto-1"
+                                target="_blank"
+                                style="
+                                  color:#111111;
+                                  text-decoration:none;
+                                "
+                              >
+                                Chaveiro Grande de Nota Musical em Círculo Plano
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              height="16"
+                              aria-hidden="true"
+                              style="
+                                height:16px;
+                                font-size:0;
+                                line-height:0;
+                              "
+                            >
+                              &nbsp;
+                            </td>
+                          </tr>
+
+                          <!-- PREÇO ANTERIOR: valor riscado em área de 24px. -->
+
+                          <tr>
+                            <td
+                              class="product-old-price dark-muted"
+                              height="24"
+                              valign="top"
+                              style="
+                                height:24px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size:14px;
+                                line-height:20px;
+                                mso-line-height-rule:exactly;
+                                color:#666666;
+                              "
+                            >
+                              De:
+                              <span
+                                style="
+                                  text-decoration:line-through;
+                                "
+                              >
+                                R$ 999,00
+                              </span>
+                            </td>
+                          </tr>
+
+                          <!-- PREÇO PIX: destaque do valor em área de 32px. -->
+
+                          <tr>
+                            <td
+                              class="product-price dark-text"
+                              height="32"
+                              valign="top"
+                              style="
+                                height:32px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size:14px;
+                                line-height:28px;
+                                mso-line-height-rule:exactly;
+                                color:#111111;
+                              "
+                            >
+                              Por:
+                              <strong
+                                style="
+                                  font-size:20px;
+                                "
+                              >
+                                R$&nbsp;999,00
+                              </strong>
+                              no PIX
+                            </td>
+                          </tr>
+
+                          <!-- PARCELAMENTO: duas linhas em área de 44px para alinhar os botões. -->
+
+                          <tr>
+                            <td
+                              class="product-installments dark-muted"
+                              height="44"
+                              valign="top"
+                              style="
+                                height:44px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size:14px;
+                                line-height:20px;
+                                mso-line-height-rule:exactly;
+                                color:#666666;
+                              "
+                            >
+                              Ou
+                              <strong>
+                                R$ 999,00
+                              </strong>
+                              <br>
+                              em 10x de
+                              <strong>
+                                R$ 999,00
+                              </strong>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              height="16"
+                              aria-hidden="true"
+                              style="
+                                height:16px;
+                                font-size:0;
+                                line-height:0;
+                              "
+                            >
+                              &nbsp;
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <table
+                                role="presentation"
+                                width="100%"
+                                cellspacing="0"
+                                cellpadding="0"
+                                border="0"
+                                style="
+                                  width:100%;
+                                "
+                              >
+
+                                <!-- CTA DO PRODUTO: link de compra com área clicável e identificação acessível. -->
+
+                                <tr>
+                                  <td
+                                    class="product-button"
+                                    height="44"
+                                    align="center"
+                                    bgcolor="#00cf64"
+                                    style="
+                                      height:44px;
+                                      background-color:#00cf64;
+                                      color:#111111;
+                                      font-family: Arial, Helvetica, sans-serif;
+                                      font-size:16px;
+                                      font-weight:700;
+                                    "
+                                  >
+                                    <a
+                                      class="product-button"
+                                      href="https://example.com/produto-1"
+                                      target="_blank"
+                                      aria-label="Comprar Produto 1"
+                                      style="
+                                        display:block;
+                                        background-color:#00cf64;
+                                        border:12px solid #00cf64;
+                                        color:#111111;
+                                        font-family: Arial, Helvetica, sans-serif;
+                                        font-size:16px;
+                                        font-weight:700;
+                                        line-height:20px;
+                                        mso-line-height-rule:exactly;
+                                        text-align:center;
+                                        text-decoration:none;
+                                      "
+                                    >
+                                      COMPRAR
+                                    </a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td
+                  class="product-gutter"
+                  width="20"
+                  aria-hidden="true"
+                  style="
+                    width:3.5714286%;
+                    font-size:0;
+                    line-height:0;
+                  "
+                >
+                  &nbsp;
+                </td>
+                <td
+                  class="product-column"
+                  width="270"
+                  valign="top"
+                  style="
+                    width:48.2142857%;
+                    vertical-align:top;
+                  "
+                >
+
+                  <!-- PRODUTO 2: imagem, descrição, preços e botão de compra. -->
+
+                  <table
+                    role="presentation"
+                    class="product-card"
+                    width="100%"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    bgcolor="#f7f7f7"
+                    style="
+                      width:100%;
+                      table-layout:fixed;
+                      background-color:#f7f7f7;
+                    "
+                  >
+                    <tr>
+                      <td
+                        style="
+                          padding:20px;
+                        "
+                      >
+                        <table
+                          role="presentation"
+                          width="100%"
+                          cellspacing="0"
+                          cellpadding="0"
+                          border="0"
+                          style="
+                            width:100%;
+                            table-layout:fixed;
+                          "
+                        >
+
+                          <!-- IMAGEM DO PRODUTO: área de 220px, centralizada e com link. -->
+
+                          <tr>
+                            <td
+                              class="product-image-area"
+                              height="220"
+                              align="center"
+                              valign="middle"
+                              style="
+                                height:220px;
+                                font-size:0;
+                                line-height:0;
+                              "
+                            >
+                              <a
+                                href="https://example.com/produto-2"
+                                target="_blank"
+                                style="
+                                  text-decoration:none;
+                                "
+                              >
+                                <img
+                                  src="https://res.cloudinary.com/rcjsqvet/image/upload/f_auto/q_auto/par_de_brincos_dourados.png"
+                                  width="220"
+                                  height="220"
+                                  alt="Produto 2 — imagem ilustrativa"
+                                  style="
+                                    display:block;
+                                    width:100%;
+                                    max-width:220px;
+                                    height:auto;
+                                    border:0;
+                                    color:#333333;
+                                    font:14px Arial,sans-serif;
+                                  "
+                                >
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              height="18"
+                              aria-hidden="true"
+                              style="
+                                height:18px;
+                                font-size:0;
+                                line-height:0;
+                              "
+                            >
+                              &nbsp;
+                            </td>
+                          </tr>
+
+                          <!-- NOME DO PRODUTO: reserva de 80px, alinhamento superior e entrelinha de 20px. -->
+
+                          <tr>
+                            <td
+                              class="product-name dark-text"
+                              height="80"
+                              valign="top"
+                              style="
+                                height:80px;
+                                padding:0;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size:16px;
+                                line-height:20px;
+                                mso-line-height-rule:exactly;
+                                font-weight:700;
+                                color:#111111;
+                              "
+                            >
+                              <a
+                                class="dark-text"
+                                href="https://example.com/produto-2"
+                                target="_blank"
+                                style="
+                                  color:#111111;
+                                  text-decoration:none;
+                                "
+                              >
+                                Par de Brincos Estilo Nota Musical
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              height="16"
+                              aria-hidden="true"
+                              style="
+                                height:16px;
+                                font-size:0;
+                                line-height:0;
+                              "
+                            >
+                              &nbsp;
+                            </td>
+                          </tr>
+
+                          <!-- PREÇO ANTERIOR: valor riscado em área de 24px. -->
+
+                          <tr>
+                            <td
+                              class="product-old-price dark-muted"
+                              height="24"
+                              valign="top"
+                              style="
+                                height:24px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size:14px;
+                                line-height:20px;
+                                mso-line-height-rule:exactly;
+                                color:#666666;
+                              "
+                            >
+                              De:
+                              <span
+                                style="
+                                  text-decoration:line-through;
+                                "
+                              >
+                                R$ 999,00
+                              </span>
+                            </td>
+                          </tr>
+
+                          <!-- PREÇO PIX: destaque do valor em área de 32px. -->
+
+                          <tr>
+                            <td
+                              class="product-price dark-text"
+                              height="32"
+                              valign="top"
+                              style="
+                                height:32px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size:14px;
+                                line-height:28px;
+                                mso-line-height-rule:exactly;
+                                color:#111111;
+                              "
+                            >
+                              Por:
+                              <strong
+                                style="
+                                  font-size:20px;
+                                "
+                              >
+                                R$&nbsp;999,00
+                              </strong>
+                              no PIX
+                            </td>
+                          </tr>
+
+                          <!-- PARCELAMENTO: duas linhas em área de 44px para alinhar os botões. -->
+
+                          <tr>
+                            <td
+                              class="product-installments dark-muted"
+                              height="44"
+                              valign="top"
+                              style="
+                                height:44px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size:14px;
+                                line-height:20px;
+                                mso-line-height-rule:exactly;
+                                color:#666666;
+                              "
+                            >
+                              Ou
+                              <strong>
+                                R$ 999,00
+                              </strong>
+                              <br>
+                              em 10x de
+                              <strong>
+                                R$ 999,00
+                              </strong>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              height="16"
+                              aria-hidden="true"
+                              style="
+                                height:16px;
+                                font-size:0;
+                                line-height:0;
+                              "
+                            >
+                              &nbsp;
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <table
+                                role="presentation"
+                                width="100%"
+                                cellspacing="0"
+                                cellpadding="0"
+                                border="0"
+                                style="
+                                  width:100%;
+                                "
+                              >
+
+                                <!-- CTA DO PRODUTO: link de compra com área clicável e identificação acessível. -->
+
+                                <tr>
+                                  <td
+                                    class="product-button"
+                                    height="44"
+                                    align="center"
+                                    bgcolor="#00cf64"
+                                    style="
+                                      height:44px;
+                                      background-color:#00cf64;
+                                      color:#111111;
+                                      font-family: Arial, Helvetica, sans-serif;
+                                      font-size:16px;
+                                      font-weight:700;
+                                    "
+                                  >
+                                    <a
+                                      class="product-button"
+                                      href="https://example.com/produto-2"
+                                      target="_blank"
+                                      aria-label="Comprar Produto 2"
+                                      style="
+                                        display:block;
+                                        background-color:#00cf64;
+                                        border:12px solid #00cf64;
+                                        color:#111111;
+                                        font-family: Arial, Helvetica, sans-serif;
+                                        font-size:16px;
+                                        font-weight:700;
+                                        line-height:20px;
+                                        mso-line-height-rule:exactly;
+                                        text-align:center;
+                                        text-decoration:none;
+                                      "
+                                    >
+                                      COMPRAR
+                                    </a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  colspan="3"
+                  height="24"
+                  aria-hidden="true"
+                  style="
+                    height:24px;
+                    font-size:0;
+                    line-height:0;
+                  "
+                >
+                  &nbsp;
+                </td>
+              </tr>
+
+              <!-- PRATELEIRA 2: produtos 3 e 4. -->
+
+              <tr>
+                <td
+                  class="product-column"
+                  width="270"
+                  valign="top"
+                  style="
+                    width:48.2142857%;
+                    vertical-align:top;
+                  "
+                >
+
+                  <!-- PRODUTO 3: imagem, descrição, preços e botão de compra. -->
+
+                  <table
+                    role="presentation"
+                    class="product-card"
+                    width="100%"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    bgcolor="#f7f7f7"
+                    style="
+                      width:100%;
+                      table-layout:fixed;
+                      background-color:#f7f7f7;
+                    "
+                  >
+                    <tr>
+                      <td
+                        style="
+                          padding:20px;
+                        "
+                      >
+                        <table
+                          role="presentation"
+                          width="100%"
+                          cellspacing="0"
+                          cellpadding="0"
+                          border="0"
+                          style="
+                            width:100%;
+                            table-layout:fixed;
+                          "
+                        >
+
+                          <!-- IMAGEM DO PRODUTO: área de 220px, centralizada e com link. -->
+
+                          <tr>
+                            <td
+                              class="product-image-area"
+                              height="220"
+                              align="center"
+                              valign="middle"
+                              style="
+                                height:220px;
+                                font-size:0;
+                                line-height:0;
+                              "
+                            >
+                              <a
+                                href="https://example.com/produto-3"
+                                target="_blank"
+                                style="
+                                  text-decoration:none;
+                                "
+                              >
+                                <img
+                                  src="https://res.cloudinary.com/rcjsqvet/image/upload/f_auto/q_auto/Anel_Feminino_de_Moda.png"
+                                  width="220"
+                                  height="220"
+                                  alt="Produto 3 — imagem ilustrativa"
+                                  style="
+                                    display:block;
+                                    width:100%;
+                                    max-width:220px;
+                                    height:auto;
+                                    border:0;
+                                    color:#333333;
+                                    font:14px Arial,sans-serif;
+                                  "
+                                >
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              height="18"
+                              aria-hidden="true"
+                              style="
+                                height:18px;
+                                font-size:0;
+                                line-height:0;
+                              "
+                            >
+                              &nbsp;
+                            </td>
+                          </tr>
+
+                          <!-- NOME DO PRODUTO: reserva de 80px, alinhamento superior e entrelinha de 20px. -->
+
+                          <tr>
+                            <td
+                              class="product-name dark-text"
+                              height="80"
+                              valign="top"
+                              style="
+                                height:80px;
+                                padding:0;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size:16px;
+                                line-height:20px;
+                                mso-line-height-rule:exactly;
+                                font-weight:700;
+                                color:#111111;
+                              "
+                            >
+                              <a
+                                class="dark-text"
+                                href="https://example.com/produto-3"
+                                target="_blank"
+                                style="
+                                  color:#111111;
+                                  text-decoration:none;
+                                "
+                              >
+                                Anel Feminino de Moda
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              height="16"
+                              aria-hidden="true"
+                              style="
+                                height:16px;
+                                font-size:0;
+                                line-height:0;
+                              "
+                            >
+                              &nbsp;
+                            </td>
+                          </tr>
+
+                          <!-- PREÇO ANTERIOR: valor riscado em área de 24px. -->
+
+                          <tr>
+                            <td
+                              class="product-old-price dark-muted"
+                              height="24"
+                              valign="top"
+                              style="
+                                height:24px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size:14px;
+                                line-height:20px;
+                                mso-line-height-rule:exactly;
+                                color:#666666;
+                              "
+                            >
+                              De:
+                              <span
+                                style="
+                                  text-decoration:line-through;
+                                "
+                              >
+                                R$ 999,00
+                              </span>
+                            </td>
+                          </tr>
+
+                          <!-- PREÇO PIX: destaque do valor em área de 32px. -->
+
+                          <tr>
+                            <td
+                              class="product-price dark-text"
+                              height="32"
+                              valign="top"
+                              style="
+                                height:32px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size:14px;
+                                line-height:28px;
+                                mso-line-height-rule:exactly;
+                                color:#111111;
+                              "
+                            >
+                              Por:
+                              <strong
+                                style="
+                                  font-size:20px;
+                                "
+                              >
+                                R$&nbsp;999,00
+                              </strong>
+                              no PIX
+                            </td>
+                          </tr>
+
+                          <!-- PARCELAMENTO: duas linhas em área de 44px para alinhar os botões. -->
+
+                          <tr>
+                            <td
+                              class="product-installments dark-muted"
+                              height="44"
+                              valign="top"
+                              style="
+                                height:44px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size:14px;
+                                line-height:20px;
+                                mso-line-height-rule:exactly;
+                                color:#666666;
+                              "
+                            >
+                              Ou
+                              <strong>
+                                R$ 999,00
+                              </strong>
+                              <br>
+                              em 10x de
+                              <strong>
+                                R$ 999,00
+                              </strong>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              height="16"
+                              aria-hidden="true"
+                              style="
+                                height:16px;
+                                font-size:0;
+                                line-height:0;
+                              "
+                            >
+                              &nbsp;
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <table
+                                role="presentation"
+                                width="100%"
+                                cellspacing="0"
+                                cellpadding="0"
+                                border="0"
+                                style="
+                                  width:100%;
+                                "
+                              >
+
+                                <!-- CTA DO PRODUTO: link de compra com área clicável e identificação acessível. -->
+
+                                <tr>
+                                  <td
+                                    class="product-button"
+                                    height="44"
+                                    align="center"
+                                    bgcolor="#00cf64"
+                                    style="
+                                      height:44px;
+                                      background-color:#00cf64;
+                                      color:#111111;
+                                      font-family: Arial, Helvetica, sans-serif;
+                                      font-size:16px;
+                                      font-weight:700;
+                                    "
+                                  >
+                                    <a
+                                      class="product-button"
+                                      href="https://example.com/produto-3"
+                                      target="_blank"
+                                      aria-label="Comprar Produto 3"
+                                      style="
+                                        display:block;
+                                        background-color:#00cf64;
+                                        border:12px solid #00cf64;
+                                        color:#111111;
+                                        font-family: Arial, Helvetica, sans-serif;
+                                        font-size:16px;
+                                        font-weight:700;
+                                        line-height:20px;
+                                        mso-line-height-rule:exactly;
+                                        text-align:center;
+                                        text-decoration:none;
+                                      "
+                                    >
+                                      COMPRAR
+                                    </a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td
+                  class="product-gutter"
+                  width="20"
+                  aria-hidden="true"
+                  style="
+                    width:3.5714286%;
+                    font-size:0;
+                    line-height:0;
+                  "
+                >
+                  &nbsp;
+                </td>
+                <td
+                  class="product-column"
+                  width="270"
+                  valign="top"
+                  style="
+                    width:48.2142857%;
+                    vertical-align:top;
+                  "
+                >
+
+                  <!-- PRODUTO 4: imagem, descrição, preços e botão de compra. -->
+
+                  <table
+                    role="presentation"
+                    class="product-card"
+                    width="100%"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    bgcolor="#f7f7f7"
+                    style="
+                      width:100%;
+                      table-layout:fixed;
+                      background-color:#f7f7f7;
+                    "
+                  >
+                    <tr>
+                      <td
+                        style="
+                          padding:20px;
+                        "
+                      >
+                        <table
+                          role="presentation"
+                          width="100%"
+                          cellspacing="0"
+                          cellpadding="0"
+                          border="0"
+                          style="
+                            width:100%;
+                            table-layout:fixed;
+                          "
+                        >
+
+                          <!-- IMAGEM DO PRODUTO: área de 220px, centralizada e com link. -->
+
+                          <tr>
+                            <td
+                              class="product-image-area"
+                              height="220"
+                              align="center"
+                              valign="middle"
+                              style="
+                                height:220px;
+                                font-size:0;
+                                line-height:0;
+                              "
+                            >
+                              <a
+                                href="https://example.com/produto-4"
+                                target="_blank"
+                                style="
+                                  text-decoration:none;
+                                "
+                              >
+                                <img
+                                  src="https://res.cloudinary.com/rcjsqvet/image/upload/v1790587668/Par_de_Aneis_Femininos.png"
+                                  width="220"
+                                  height="220"
+                                  alt="Produto 4 — imagem ilustrativa"
+                                  style="
+                                    display:block;
+                                    width:100%;
+                                    max-width:220px;
+                                    height:auto;
+                                    border:0;
+                                    color:#333333;
+                                    font:14px Arial,sans-serif;
+                                  "
+                                >
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              height="18"
+                              aria-hidden="true"
+                              style="
+                                height:18px;
+                                font-size:0;
+                                line-height:0;
+                              "
+                            >
+                              &nbsp;
+                            </td>
+                          </tr>
+
+                          <!-- NOME DO PRODUTO: reserva de 80px, alinhamento superior e entrelinha de 20px. -->
+
+                          <tr>
+                            <td
+                              class="product-name dark-text"
+                              height="80"
+                              valign="top"
+                              style="
+                                height:80px;
+                                padding:0;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size:16px;
+                                line-height:20px;
+                                mso-line-height-rule:exactly;
+                                font-weight:700;
+                                color:#111111;
+                              "
+                            >
+                              <a
+                                class="dark-text"
+                                href="https://example.com/produto-4"
+                                target="_blank"
+                                style="
+                                  color:#111111;
+                                  text-decoration:none;
+                                "
+                              >
+                                Conjunto dois anéis elegantes e luxuosos para mulher
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              height="16"
+                              aria-hidden="true"
+                              style="
+                                height:16px;
+                                font-size:0;
+                                line-height:0;
+                              "
+                            >
+                              &nbsp;
+                            </td>
+                          </tr>
+
+                          <!-- PREÇO ANTERIOR: valor riscado em área de 24px. -->
+
+                          <tr>
+                            <td
+                              class="product-old-price dark-muted"
+                              height="24"
+                              valign="top"
+                              style="
+                                height:24px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size:14px;
+                                line-height:20px;
+                                mso-line-height-rule:exactly;
+                                color:#666666;
+                              "
+                            >
+                              De:
+                              <span
+                                style="
+                                  text-decoration:line-through;
+                                "
+                              >
+                                R$ 999,00
+                              </span>
+                            </td>
+                          </tr>
+
+                          <!-- PREÇO PIX: destaque do valor em área de 32px. -->
+
+                          <tr>
+                            <td
+                              class="product-price dark-text"
+                              height="32"
+                              valign="top"
+                              style="
+                                height:32px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size:14px;
+                                line-height:28px;
+                                mso-line-height-rule:exactly;
+                                color:#111111;
+                              "
+                            >
+                              Por:
+                              <strong
+                                style="
+                                  font-size:20px;
+                                "
+                              >
+                                R$&nbsp;999,00
+                              </strong>
+                              no PIX
+                            </td>
+                          </tr>
+
+                          <!-- PARCELAMENTO: duas linhas em área de 44px para alinhar os botões. -->
+
+                          <tr>
+                            <td
+                              class="product-installments dark-muted"
+                              height="44"
+                              valign="top"
+                              style="
+                                height:44px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size:14px;
+                                line-height:20px;
+                                mso-line-height-rule:exactly;
+                                color:#666666;
+                              "
+                            >
+                              Ou
+                              <strong>
+                                R$ 999,00
+                              </strong>
+                              <br>
+                              em 10x de
+                              <strong>
+                                R$ 999,00
+                              </strong>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              height="16"
+                              aria-hidden="true"
+                              style="
+                                height:16px;
+                                font-size:0;
+                                line-height:0;
+                              "
+                            >
+                              &nbsp;
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <table
+                                role="presentation"
+                                width="100%"
+                                cellspacing="0"
+                                cellpadding="0"
+                                border="0"
+                                style="
+                                  width:100%;
+                                "
+                              >
+
+                                <!-- CTA DO PRODUTO: link de compra com área clicável e identificação acessível. -->
+
+                                <tr>
+                                  <td
+                                    class="product-button"
+                                    height="44"
+                                    align="center"
+                                    bgcolor="#00cf64"
+                                    style="
+                                      height:44px;
+                                      background-color:#00cf64;
+                                      color:#111111;
+                                      font-family: Arial, Helvetica, sans-serif;
+                                      font-size:16px;
+                                      font-weight:700;
+                                    "
+                                  >
+                                    <a
+                                      class="product-button"
+                                      href="https://example.com/produto-4"
+                                      target="_blank"
+                                      aria-label="Comprar Produto 4"
+                                      style="
+                                        display:block;
+                                        background-color:#00cf64;
+                                        border:12px solid #00cf64;
+                                        color:#111111;
+                                        font-family: Arial, Helvetica, sans-serif;
+                                        font-size:16px;
+                                        font-weight:700;
+                                        line-height:20px;
+                                        mso-line-height-rule:exactly;
+                                        text-align:center;
+                                        text-decoration:none;
+                                      "
+                                    >
+                                      COMPRAR
+                                    </a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Fim da seção de produtos. -->
+
+        <!-- CONTEÚDO SECUNDÁRIO: benefícios e condições da campanha. -->
+
+        <tr>
+          <td
+            class="content-padding"
+            style="
+              padding: 32px 40px;
+              font-family: Arial, Helvetica, sans-serif;
+            "
+          >
+            <p
+              class="dark-muted"
+              style="
+                margin: 0;
+                font-size: 14px;
+                line-height: 22px;
+                color: #666666;
+              "
+            >
+              Espaço para informações adicionais, benefícios, condições da campanha ou qualquer conteúdo secundário.
+            </p>
+          </td>
+        </tr>
+
+        <!-- CONTATO: email à esquerda, logo centralizado e telefone à direita; colunas laterais simétricas. -->
+
+        <tr>
+          <td
+            class="brand-footer"
+            style="
+              padding: 24px 20px;
+            "
+          >
+            <table
+              role="presentation"
+              width="100%"
+              cellspacing="0"
+              cellpadding="0"
+              border="0"
+              style="
+                width: 100%;
+                table-layout: fixed;
+              "
+            >
+              <tr>
+                <!-- EMAIL DE CONTATO -->
+                <td
+                  width="35%"
+                  align="left"
+                  valign="middle"
+                  class="brand-contact"
+                  style="
+                    width: 35%;
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: #b58a35;
+                    text-align: left;
+                  "
+                >
+                  <span
+                    class="brand-contact-label"
+                    style="
+                      font-size: 11px;
+                      line-height: 20px;
+                    "
+                  >
+                    EMAIL
+                  </span>
+                  <br>
+                  <span
+                    class="brand-contact-number"
+                    style="
+                      font-size: 13px;
+                      line-height: 20px;
+                      font-weight: 700;
+                      color: #b58a35;
+                      overflow-wrap: anywhere;
+                      word-wrap: break-word;
+                    "
+                  >
+                    teste@kitajshop.com
+                  </span>
+                </td>
+
+                <!-- LOGO CENTRALIZADO -->
+                <td
+                  width="30%"
+                  align="center"
+                  valign="middle"
+                  style="
+                    width: 30%;
+                    padding: 0 10px;
+                  "
+                >
+                  <a
+                    href="https://www.exemplo.com"
+                    target="_blank"
+                  >
+                    <img
+                      src="https://res.cloudinary.com/rcjsqvet/image/upload/f_auto/q_auto/Logo_Pequena.png"
+                      width="140"
+                      alt="Kitaj Shop"
+                      class="brand-footer-logo"
+                      style="
+                        display: block;
+                        width: 140px;
+                        max-width: 100%;
+                        height: auto;
+                        border: 0;
+                        margin: 0 auto;
+                      "
+                    >
+                  </a>
+                </td>
+
+                <!-- TELEFONE DE CONTATO -->
+                <td
+                  width="35%"
+                  align="right"
+                  valign="middle"
+                  class="brand-contact"
+                  style="
+                    width: 35%;
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: #b58a35;
+                    text-align: right;
+                  "
+                >
+                  <span
+                    class="brand-contact-label"
+                    style="
+                      font-size: 11px;
+                      line-height: 20px;
+                    "
+                  >
+                    TELEFONE
+                  </span>
+                  <br>
+                  <span
+                    class="brand-contact-number"
+                    style="
+                      font-size: 13px;
+                      line-height: 20px;
+                      font-weight: 700;
+                      color: #b58a35;
+                      overflow-wrap: anywhere;
+                      word-wrap: break-word;
+                    "
+                  >
+                    +00 99999-9999
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!--
+          FOOTER: identificação da empresa e descadastro.
+          Substituir {{unsubscribe}} pela variável da plataforma de envio.
+        -->
+
+        <tr>
+          <td
+            align="center"
+            bgcolor="#eeeeee"
+            class="dark-container dark-muted"
+            style="
+              padding: 30px 30px;
+              background-color: #eeeeee;
+              font-family: Arial, Helvetica, sans-serif;
+              font-size: 12px;
+              line-height: 19px;
+              color: #666666;
+            "
+          >
+            <strong
+              class="dark-text"
+              style="
+                color:#333333;
+              "
+            >
+              Kitaj Shop
+            </strong>
+            <br>
+            Rua Exemplo, 123 — São Paulo/SP
+            <br>
+            <a
+              href="https://www.exemplo.com"
+              style="
+                color: #555555;
+                text-decoration: underline;
+              "
+            >
+              www.exemplo.com
+            </a>
+            <br>
+            <br>
+            Você recebeu este email porque está cadastrado em nossa lista de comunicações.
+            <br>
+            <br>
+            <a
+              href="{{unsubscribe}}"
+              style="
+                color: #555555;
+                text-decoration: underline;
+              "
+            >
+              Descadastrar
+            </a>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Fim do container; fechamento da tabela condicional do Outlook. -->
+
+      <!--[if mso]>
+        </td>
+        </tr>
+        </table>
+      <![endif]-->
+
+    </center>
+  </body>
+</html>
